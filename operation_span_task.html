@@ -103,19 +103,19 @@
 var instructions = {
     type: 'instructions',
     pages: function(){
-      pageOne = '<div style="font-size:20px;"><b>INSTRUCTIONS</b><br><br><br>This is the operation span task. <br><br>This task has two parts: <br>(1) Letter memorization <br>(2) Math problem solving<br><br><br></div>'
-      pageTwo = '<div style="font-size:20px;">We will first practice LETTER MEMORIZATION.<br><br>A sequence of letters will appear on the screen one at a time (around 3 to 6 in a trial).<br>Try to remember each letter in the order presented.<br><br>After letter presentation, you will see a screen listing 12 possible letters.<br>Your task is to select each letter that was presented in its correct presentation order. <br><br>Use the mouse to select the appropriate letters <br>If you make a mistake use the provided "Backspace" button to clear your last response. <br><br>Remember, it is important that you select the letters in the order that you saw them.<br> So if you forget one of the letters, guess the best you can for that one, and select the rest in their correct order.<br><br>Press "Next" for practice trials.<br><br></div>'
+      pageOne = '<div style="font-size:20px;"><b>ANWEISUNGEN</b><br><br><br>Dies ist die "Operation Span Task".<br><br> Diese Aufgabe hat zwei Teile:<br>(1) Das Auswendiglernen von Buchstaben<br>(2) das Lösen von mathematischen Gleichungen<br><br><br></div>'
+      pageTwo = '<div style="font-size:20px;">Wir werden zuerst das AUSWENDIGLERNEN DER BUCHSTABEN üben.<br><br>Eine Buchstabenabfolge wird nacheinander auf dem Bildschirm erscheinen (ungefähr 3 bis 6 Buchstaben pro Durchgang).<br>Versuchen Sie, sich die Buchstaben in der Reihenfolge zu merken, in der sie erschienen sind.<br><br>Nach jeder Buchstabenabfolge werden Ihnen auf einer neuen Seite zwölf mögliche Buchstaben angezeigt.<br>Ihre Aufgabe ist es nun, alle Buchstaben, die Ihnen zuvor präsentiert wurden, in der richtigen Reihenfolge auszuwählen.<br><br>Verwenden Sie die Maus, um die entsprechenden Buchstaben auszuwählen.<br>Wenn Sie einen Fehler machen, verwenden Sie die vorhandene "Backspace"-Taste, um Ihre letzte Antwort zu löschen.<br><br>Bitte denken Sie daran, dass es wichtig ist, die Buchstaben in der Reihenfolge auszuwählen, in der Sie sie gesehen haben.<br> Falls Sie einen Buchstaben vergessen haben sollten, versuchen Sie, diesen Buchstaben noch so gut wie möglich zu erraten, und wählen Sie dann die restlichen Buchstaben in der korrekten Reihenfolge aus.<br><br> Drücken Sie "Weiter" für ein paar Übungsdurchgänge.<br><br></div>'
       return [pageOne, pageTwo]//, pageThree]
     },
     allow_backward: false,
-    button_label_next: "Next",
+    button_label_next: "Weiter",
     show_clickable_nav: true
   }
 
   var instructions2 = {
     type: 'instructions',
     pages: function(){
-      pageOne = '<div style="font-size:20px;">You will next practice MATH PROBLEM SOLVING.<br><br>A simple math equation will appear on the screen, like this:<br>3 + 4 = 7<br>Your task is to solve the math problem and determine if the answer provided to it is correct.<br><br>For example, if you see the following problem:<br>2 + 3 = 5<br>you should click the <b>"True"</b> button because 2 and 3 added together equals 5.<br><br>If you see the following problem:<br>2 + 3 = 6<br>you should click the <b>"False"</b> button because 2 and 3 added together DOES NOT equal 6.<br><br>Please ask the Research Assistant if you have not understood the task.<br>Press "Next" to start practicing math problem solving.<br><br></div>'
+      pageOne = '<div style="font-size:20px;">Sie werden nun das LÖSEN VON MATHEMATISCHEN GLEICHUNGEN üben.<br><br>Eine einfache mathematische Gleichung wird auf dem Bildschirm wie folgt erscheinen:<br>3 + 4 = 7<br>Ihre Aufgabe ist es, diese mathematische Gleichung zu lösen und zu entscheiden, ob die bereits vorgeschlagene Antwort korrekt ist. <br><br>Zum Beispiel, wenn Sie die Gleichung <br>2 + 3 = 5<br> sehen, sollten Sie den <b>"Korrekt"</b>-Knopf klicken, da 2 plus 3 zusammen 5 ergeben.<br><br>Wenn Sie die Gleichung <br>2 + 3 = 6<br>sehen, sollten sie den <b>"Falsch"</b>-Knopf klicken, da 2 plus 3 zusammen NICHT 6 ergeben.<br> Drücken Sie "Weiter", um mit dem Üben der mathematischen Gleichungen zu beginnen!<br><br></div>'
       return [pageOne]
     },
     allow_backward: false,
@@ -126,12 +126,12 @@ var instructions = {
   var instructions3 = {
     type: 'instructions',
     pages: function(){
-      pageOne = '<div style="font-size:20px;">We will now practice the two tasks together.<br><br>In the next practice set, you will first be presented with a letter.<br>Try and remember that letter.<br>After the letter dissapears, you will be provided with a math problem<br>and you have to judge if the answer provided is true or false.<br><br>It is important to work QUICKLY and ACCURATELY on the math problem.<br>Each math problem will be presented for only 6 seconds.<br><br></div>'
-      pageTwo = '<div style="font-size:20px;">After the math problem, you will be shown another letter to remember,<br>which will be followed by another math problem.<br><br>Therefore, letter presentations and math problems will alternate.<br>After 3 to 6 letters have been presented, the recall screen will appear.<br>Use the mouse to select the presented letters in their correct order.<br><br>Do you have any questions?<br>Press "Next" to start practice rounds.<br><br></div>'
+      pageOne = '<div style="font-size:20px;">Wir werden nun die beiden Aufgaben gemeinsam üben.<br><br>Im nächsten Übungsset, wird Ihnen zuerst ein Buchstabe angezeigt. <br>Versuchen Sie, sich diesen Buchstaben zu merken.<br>Nachdem der Buchstabe verschwunden ist, wird Ihnen eine mathematische Gleichung angezeigt<br> und Sie müssen entscheiden, ob die angegebene Lösung korrekt oder falsch ist.<br><br>Es ist wichtig, dass Sie die mathematische Gleichung SCHNELL und PRÄZISE bearbeiten.<br>Jede Gleichung wird nur für 6 Sekunden angezeigt!<br><br></div>'
+      pageTwo = '<div style="font-size:20px;">Nach der mathematischen Gleichung wird Ihnen ein weiterer Buchstabe angezeigt, den Sie sich merken sollen.<br>Danach folgt wieder eine Gleichung.<br><br>Buchstaben und Gleichungen werden Ihnen also abwechselnd angezeigt.<br>Nach 3 bis 6 Buchstaben, wird Ihnen die Seite angezeigt,<br> wo Sie die Buchstaben auswählen sollen.<br> <br>Verwenden Sie die Maus, um die Buchstaben, die Ihnen angezeigt wurden, in der korrekten Reihenfolge auszuwählen.<br><br>Drücken Sie "Weiter", um mit einigen Übungsrunden zu beginnen!<br><br></div>'
       return [pageOne, pageTwo]
     },
     allow_backward: false,
-    button_label_next: "Next",
+    button_label_next: "Weiter",
     show_clickable_nav: true,
     on_finish: function(){
       nMathAcc = 0
@@ -141,11 +141,11 @@ var instructions = {
   var instructions4 = {
     type: 'instructions',
     pages: function(){
-      pageOne = '<div style="font-size:20px;">We have finished with the practice trials.<br><br><b>We will now start with the main trials.</b><br>Proceed only if you have understood the task.<br><br>Press "Next" to start the main trials.<br><br></div>'
+      pageOne = '<div style="font-size:20px;">Wir haben nun die Übungsdurchgänge abgeschlossen.<br><br><b>Wir werden nun mit den Hauptdurchgängen starten. </b><br>Fahren Sie nur fort, wenn Ihnen die Aufgabe klar ist.<br><br> Drücken Sie "Weiter", um mit den Hauptdurchgängen zu starten!<br><br></div>'
       return [pageOne]
     },
     allow_backward: false,
-    button_label_next: "Next",
+    button_label_next: "Weiter",
     show_clickable_nav: true
   }
 
@@ -165,7 +165,7 @@ var instructions = {
     stimulus: function(){
       return cogloadf(eqCorrect)
     },
-    choices: ["True", "False"],
+    choices: ["Korrekt", "Falsch"],
     on_finish: function(){
       var acc = jsPsych.data.get().last(1).values()[0].accuracy;
       if (acc==1){
@@ -184,7 +184,7 @@ var cog_load = {
     return cogloadf(eqCorrect)
   },
   trial_duration:6000,
-  choices: ["True", "False"],
+  choices: ["Korrekt", "Falsch"],
   on_finish: function(){
     var acc = jsPsych.data.get().last(1).values()[0].accuracy;
     if (acc==1){
@@ -238,14 +238,14 @@ var recall = {
 var feedback = {
     type: 'instructions',
     pages: function(){
-      pageOne = "<div style='font-size:20px;'><b>You recalled <font color='blue'>"+nLettersRecalled+" out of "+nLetters+"</font> letters in their correct order.</b><br><br>"
+      pageOne = "<div style='font-size:20px;'><b>Sie haben <font color='blue'>"+nLettersRecalled+" von "+nLetters+"</font> Buchstaben in der korrekten Reihenfolge erkannt.</b><br><br>"
       if (n>nPracticeTrials){
-        pageOne+= "You solved <font color='blue'>"+nMathAcc+" out of "+nLetters+"</font> math problems accurately.<br><br></div>"
+        pageOne+= "Sie haben <font color='blue'>"+nMathAcc+" von "+nLetters+"</font> mathematische Gleichungen richtig gelöst.<br><br></div>"
       }
       return [pageOne]
     },
     allow_backward: false,
-    button_label_next: "Next Trial",
+    button_label_next: "Nächster Durchgang",
     show_clickable_nav: true,
     on_finish: function(){
       nMathAcc = 0
@@ -258,11 +258,11 @@ var feedback = {
       var text = ""
       var accuracy = jsPsych.data.get().last(1).values()[0].accuracy
       if (accuracy==1){
-        text += '<div style="font-size:35px; color:rgb(0 220 0)"><b>Correct<br><br><br><br></div>'
+        text += '<div style="font-size:35px; color:rgb(0 220 0)"><b>Korrekt<br><br><br><br></div>'
       } else{
-        text += '<div style="font-size:35px; color:rgb(240 0 0)"><b>Incorrect<br><br><br><br></div>'
+        text += '<div style="font-size:35px; color:rgb(240 0 0)"><b>Falsch<br><br><br><br></div>'
       }
-      //text += '<div style="font-size:30px; color:rgb(0 0 0)"><br><br>New trial starting now.</div>'
+      //text += '<div style="font-size:30px; color:rgb(0 0 0)"><br><br>Der nächste Durchgang fängt an.</div>'
       return text
     },
     choices: jsPsych.NO_KEYS,
@@ -272,14 +272,14 @@ var feedback = {
   var conclusion = {
     type: 'html-keyboard-response',
     stimulus: function(){
-      return '<div style="font-size:20px;">This task is over.<br><br>Thank you for your participation in this task. <br><br>Please tell the Research Assistant that you have finished the task.</div>'
+      return '<div style="font-size:20px;">Diese Aufgabe ist abgeschlossen.<br><br> Danke für Ihre Teilnahme.<br></div>'
   },
     choices: jsPsych.NO_KEYS
   }
 
   var p_details = {
     type:"survey-text",
-    questions: [{prompt: "Enter subject number"}],
+    questions: [{prompt: "Geben Sie Ihre Versuchspersonennummer ein"}],
     on_finish:function(){
       partN = jsPsych.data.get().last(1).values()[0].partNum
       partN = partN.replace(/['"]+/g,'')

@@ -30,7 +30,7 @@
   //----- CUSTOMIZABLE VARIABLES -----------------------------------------
 
     minSetSize = 4 // starting length of each trial (i.e., min number of letters in a trial)
-    maxSetSize = 7 // ending length of each trial (i.e., max number of letters in a trial)
+    maxSetSize = 7 // ending length of each trial (i.e., max number of letters in a trial) - In https://link.springer.com/article/10.3758/s13428-014-0543-2 this was = 6.
     repSet = 3 // number of times each set size should be repeated
     randomize = true // present different set sizes in random order. if false, set sizes will be presented in ascending order
     file_name = null // file name for data file. if null, a default name consisting of the participant ID and a unique number is chosen.
@@ -279,14 +279,21 @@ var feedback = {
 
   var p_details = {
     type:"survey-text",
-    questions: [{prompt: "Geben Sie Ihre Versuchspersonennummer ein"}],
+    questions: [{prompt: "<strong>Willkommen!</strong><p></p>Geben Sie Ihre Versuchspersonennummer ein"}],
     on_finish:function(){
       partN = jsPsych.data.get().last(1).values()[0].partNum
       partN = partN.replace(/['"]+/g,'')
-    //  console.log(partN)
+      console.log(partN)
     }
   }
-
+  var subjectId = {
+    type: "survey-text",
+    questions: [
+      {prompt: "Bitte schalten Sie Musik, Handys und andere Geräte, die Sie ablenken könnten, aus. Geben Sie unten Ihre Versuchspersonennummer ein: ", required: true}],
+    on_finish: function(data) {
+      var responses = JSON.parse(data.responses);
+    }
+  };
   function saveData(filename, filedata){
         $.ajax({
               type:'post',

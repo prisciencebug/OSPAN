@@ -52,7 +52,7 @@
   }
   //console.log(setSizes)
 
-  var nTrials = setSizes.length // number of trials
+  var nTrials = 1 // change back to setSizes.length // number of trials
 
   if (randomize){
     setSizes = jsPsych.randomization.sampleWithoutReplacement(setSizes, nTrials)} // shuffle through the set sizes
@@ -281,29 +281,34 @@ var feedback = {
     type:"survey-text",
     questions: [{prompt: "<strong>Willkommen!</strong><p></p>Geben Sie Ihre Versuchspersonennummer ein"}],
     on_finish:function(){
-      partN = jsPsych.data.get().last(1).values()[0].partNum
-      partN = partN.replace(/['"]+/g,'')
-      console.log(partN)
+      partN = jsPsych.data.get().last(1).values()[0].partNum;
+      partN = partN.replace(/['"]+/g,'');
+      console.log(partN);
+      jsPsych.data.addProperties({subject_ID: partN});
     }
   }
-  var subjectId = {
-    type: "survey-text",
-    questions: [
-      {prompt: "Bitte schalten Sie Musik, Handys und andere Geräte, die Sie ablenken könnten, aus. Geben Sie unten Ihre Versuchspersonennummer ein: ", required: true}],
-    on_finish: function(data) {
-      var responses = JSON.parse(data.responses);
-    }
-  };
-  function saveData(filename, filedata){
-        $.ajax({
-              type:'post',
-              cache: false,
-              url: 'save_data.php', // this is the path to the above PHP script
-              data: {filename: filename, filedata: filedata}
-        });
-  };
+  // var subjectId = {
+  //   type: "survey-text",
+  //   questions: [
+  //     {prompt: "Bitte schalten Sie Musik, Handys und andere Geräte, die Sie ablenken könnten, aus. Geben Sie unten Ihre Versuchspersonennummer ein: ", required: true}],
+  //   on_finish: function (data) {
+  //     let response = JSON.parse(JSON.stringify(data.response));
+  //     let code = response.Q0;
+  //     jsPsych.data.addProperties({ subjectId: code });
+  //   },
+  //   };
+  // function saveData(filename, filedata){
+  //       $.ajax({
+  //             type:'post',
+  //             cache: false,
+  //             url: 'save_data.php', // this is the path to the above PHP script
+  //             data: {filename: filename, filedata: filedata}
+  //       });
+  // };
+  var timestamp = new Date().toISOString().replace(/z|t/gi, " ").trim();
+  jsPsych.data.addProperties({ date: timestamp });
 
-  var IDsub = Date.now()
+  // var IDsub = Date.now()
   var dataLog = {
    type: 'html-keyboard-response',
    stimulus: " ",
@@ -311,7 +316,7 @@ var feedback = {
    on_finish: function(data) {
      var data = jsPsych.data.get().filter([{trial_type:'operation-span-recall'}, {trial_type:'html-button-operationspan'}]);
      if (file_name == null){
-       file_name = "WM_operation_span_"+partN+"_"+IDsub.toString()+".csv"}
+       file_name = "operation_span_"+partN+".csv"}
      else{
        file_name += ".csv"
      }
@@ -370,9 +375,13 @@ var feedback = {
 
 jsPsych.init({
   timeline: timeline,
-  on_finish: function() {
-    jsPsych.data.displayData();// // comment out if you do not want to display results at the end of task
-  }
+  //on_finish: function() {
+   // jsPsych.data.addProperties({subjectId})
+// // comment out if you do not want to display results at the end of task
+    // jsPsych.data
+    //         .get()
+    //         .localSave("csv", `OSPAN_subject${subjectId}_${timestamp}.csv`);
+  //}
 });
 </script>
 </html>

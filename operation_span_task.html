@@ -2,6 +2,7 @@
   <head>
     <title>WM operation span task</title>
     <script src="jspsych-6.0.4/jspsych.js"></script>
+    <script src="jatos.js"></script> <!-- JATOS -->
     <script src="jspsych-6.0.4/plugins/jspsych-html-keyboard-response.js"></script>
     <script src="jspsych-6.0.4/plugins/jspsych-html-button-operationspan.js"></script>
     <script src="jspsych-6.0.4/plugins/jspsych-survey-text.js"></script>
@@ -51,6 +52,26 @@
     }
   }
   //console.log(setSizes)
+
+  // define image paths for preloading
+  var images = ["img/black.png",
+                "img/blackbox.png",
+                "img/blue.png",
+                "img/circle.png",
+                "img/green.png",
+                "img/instructions.png",
+                "img/orange.png",
+                "img/purple.png",
+                "img/red.png",
+                "img/redgrid.png",
+                "img/square.png",
+                "img/symm_instructions.png",
+                "img/symmetrySpanExampleGrid.png",
+                "img/symmetrySpanExampleRecall.png",
+                "img/white.png",
+                "img/whitebox.png",
+                "img/whitegrid.png",
+                "img/yellow.png"];
 
   var nTrials = 1 // change back to setSizes.length // number of trials
 
@@ -279,7 +300,7 @@ var feedback = {
 
   var p_details = {
     type:"survey-text",
-    questions: [{prompt: "<strong>Willkommen!</strong><p></p>Geben Sie Ihre Versuchspersonennummer ein"}],
+    questions: [{prompt: "<strong>Willkommen!</strong><p></p>Bitte schalten Sie Musik, Handys und andere Geräte, die Sie ablenken könnten, aus. Geben Sie unten Ihre Versuchspersonennummer ein:"}],
     on_finish:function(){
       partN = jsPsych.data.get().last(1).values()[0].partNum;
       partN = partN.replace(/['"]+/g,'');
@@ -373,15 +394,19 @@ var feedback = {
   timeline.push(dataLog)
   timeline.push(conclusion)
 
-jsPsych.init({
-  timeline: timeline,
-  //on_finish: function() {
-   // jsPsych.data.addProperties({subjectId})
-// // comment out if you do not want to display results at the end of task
-    // jsPsych.data
-    //         .get()
-    //         .localSave("csv", `OSPAN_subject${subjectId}_${timestamp}.csv`);
-  //}
-});
+jsPsych.pluginAPI.preloadImages(images, function(){ startExperiment(); });
+function startExperiment(){
+  jatos.onLoad(function() {
+    jsPsych.init({
+      timeline: timeline,
+      on_finish: function() {
+        jsPsych.data.addProperties({subjectId})
+        jatos.endStudy(jsPsych.data.get().csv());
+    // // comment out if you do not want to dsave results locally
+        // jsPsych.data.get().localSave("csv", `OSPAN_subject${subjectId}_${timestamp}.csv`);
+        }
+      })
+    })
+};
 </script>
 </html>
